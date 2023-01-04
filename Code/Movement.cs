@@ -82,6 +82,7 @@ public class Movement : MonoBehaviour
         if(coll.gameObject.tag == "Starts")
         {
             ai.ActivateChallenges(true);
+            Destroy(coll.gameObject);
         }else
         {
             ai.ActivateChallenges(false);

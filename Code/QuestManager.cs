@@ -9,10 +9,16 @@ public class QuestManager : MonoBehaviour
     public GameObject[] optionsBtns;
     public int currentQuestion;
     public Text questionText;
+    [SerializeField] ActiveInterface ai;
 
     private void Start()
     {
         GenerateQ();
+    }
+
+    private void Update()
+    {
+        currentQuestion = Random.Range(0, qa.Count);
     }
 
     void GenerateQ()
@@ -26,8 +32,9 @@ public class QuestManager : MonoBehaviour
     {
         for(int i = 0; i < optionsBtns.Length; i++)
         {
-            optionsBtns[i].GetComponent<AnswerValidate>().isCorrect = false;
+            ai.ActivateChallenges(false);
             optionsBtns[i].transform.GetChild(0).GetComponent<Text>().text = qa[currentQuestion].options[i];
+            optionsBtns[i].GetComponent<AnswerValidate>().isCorrect = false;
             
             if(qa[currentQuestion].correct_answer == i+1)
             {
