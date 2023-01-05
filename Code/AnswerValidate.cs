@@ -6,11 +6,13 @@ public class AnswerValidate : MonoBehaviour
 {
     public bool isCorrect = false;
     [SerializeField] QuestManager qm;
+    [SerializeField] Timer timer;
 
     public void Answer()
     {
         if(isCorrect)
         {
+            timer.ResetTimer();
             Debug.Log("CORRECT ANSWER");
             qm.SetCorrect();
         }

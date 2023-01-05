@@ -4075,6 +4075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   qm: {fileID: 1719802147}
+  timer: {fileID: 1463482159}
 --- !u!1 &308078096
 GameObject:
   m_ObjectHideFlags: 0
@@ -9495,10 +9496,10 @@ RectTransform:
   m_Father: {fileID: 1603629764}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.70250005, y: 0.44343057}
-  m_AnchorMax: {x: 0.9912501, y: 0.5591389}
-  m_AnchoredPosition: {x: 0.9000244, y: -0.5}
-  m_SizeDelta: {x: 0.86099243, y: -1.5261002}
+  m_AnchorMin: {x: 0.70250005, y: 0.363}
+  m_AnchorMax: {x: 0.9925001, y: 0.5591389}
+  m_AnchoredPosition: {x: 0.4000244, y: -0.6123047}
+  m_SizeDelta: {x: -0.139, y: -1.3015995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &812990489
 MonoBehaviour:
@@ -9513,7 +9514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.876424, b: 0.876424, a: 1}
+  m_Color: {r: 0.9528302, g: 0.9033909, b: 0.9033909, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17210,7 +17211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1463482158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18805,10 +18806,10 @@ RectTransform:
   m_Father: {fileID: 135063683}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.23012501}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.007751465}
+  m_SizeDelta: {x: 0, y: 0.015503}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1603629765
 MonoBehaviour:
@@ -20271,19 +20272,31 @@ MonoBehaviour:
     - 10
     - 6
     - 12
-    correct_answer: 0
+    correct_answer: 1
   - question: 8*2
     options:
     - 25
     - 36
     - 16
-    correct_answer: 1
+    correct_answer: 3
   - question: 20/2
     options:
     - 10
     - 63
     - 85
-    correct_answer: 0
+    correct_answer: 1
+  - question: 50/2
+    options:
+    - 25
+    - 10
+    - 74
+    correct_answer: 1
+  - question: 56-40
+    options:
+    - 26
+    - 16
+    - 66
+    correct_answer: 2
   optionsBtns:
   - {fileID: 297776304}
   - {fileID: 1951597245}
@@ -21660,10 +21673,10 @@ RectTransform:
   m_Father: {fileID: 1735502236}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3128062, y: 0.25367767}
+  m_AnchorMin: {x: 0.25300002, y: 0.25367767}
   m_AnchorMax: {x: 0.42719385, y: 0.42232236}
-  m_AnchoredPosition: {x: -0.005004883, y: 0.083999634}
-  m_SizeDelta: {x: -1.0463982, y: 0.64649963}
+  m_AnchoredPosition: {x: -0.16671753, y: 0.083999634}
+  m_SizeDelta: {x: -0.7229996, y: 0.6465001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1821087742
 MonoBehaviour:
@@ -21692,7 +21705,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 72
-    m_Alignment: 1
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -21896,6 +21909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   qm: {fileID: 1719802147}
+  timer: {fileID: 1463482159}
 --- !u!114 &1859741579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22971,6 +22985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   qm: {fileID: 1719802147}
+  timer: {fileID: 1463482159}
 --- !u!1001 &1957666441
 PrefabInstance:
   m_ObjectHideFlags: 0

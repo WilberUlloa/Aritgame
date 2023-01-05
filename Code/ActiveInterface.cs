@@ -60,16 +60,12 @@ public class ActiveInterface : MonoBehaviour
             ActivateCvs(ChanllCvs);
             Time.timeScale = 0;
             status = false;
-            //int n = Random.Range(0, arrayIU.Length);
-            //arrayIU[n].SetActive(true);
 
         }else
         {
             status = true;
             DeactivateCvs(ChanllCvs);
             Time.timeScale = 1;
-            //int n = Random.Range(0, arrayIU.Length);
-            //arrayIU[n].SetActive(false);
         }
     }
 
