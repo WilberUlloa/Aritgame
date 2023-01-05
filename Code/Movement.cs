@@ -19,12 +19,13 @@ public class Movement : MonoBehaviour
     public float jump = 8;
     Rigidbody2D player;
     Animator pyr_runing;
-
+    public Text UserName;
 
     void Start()
     {
      player = GetComponent<Rigidbody2D>();
      pyr_runing = GetComponent<Animator>();
+     AddUserName();
        
     }
 
@@ -107,6 +108,24 @@ public class Movement : MonoBehaviour
     }
     public void NopressJump(){
         moveJump = false;
+    }
+
+    public void AddUserName()
+    {
+        if(PlayerPrefs.HasKey("KeyUserName"))
+        {
+            UserName.text = PlayerPrefs.GetString("KeyUserName");
+        }
+        else
+        {
+            UserName.text = "Usuario";
+            PlayerPrefs.SetString("KeyUserName", "Usuario");
+        }
+
+        if(UserName.text == "")
+        {
+            UserName.text = "Usuario";
+        }
     }
 
 }
