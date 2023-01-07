@@ -36,6 +36,9 @@ public class Timer : MonoBehaviour
         }
     }
 
+    public void PauseTimer(){linked = false;}
+    public void ResumeTimer(){linked = true;}
+
     public void ResetTimer()
     {
         lifeBar.UpdateBar(MaxTime);

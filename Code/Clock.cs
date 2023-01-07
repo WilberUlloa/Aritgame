@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class Clock : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI TextClock;
+    [SerializeField] ActiveInterface ai;
     private float valueClock;
     private bool status;
 
     private void Awake()
     {
      status = true;
-     valueClock = 40f;   
+     valueClock = 40f;
     }
 
     void Update()
@@ -21,12 +22,13 @@ public class Clock : MonoBehaviour
       if(status)
         {
             valueClock -= Time.deltaTime;
-            int tm = Mathf.FloorToInt(valueClock * 60 / 60);
+            int tm = Mathf.FloorToInt(valueClock);
             TextClock.text = ""+tm;
 
             if(valueClock <= 0)
             {
-                status = true;
+                status = false;
+                ai.ActivateChallenges(false);
             }
         }  
     }

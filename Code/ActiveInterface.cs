@@ -10,7 +10,7 @@ public class ActiveInterface : MonoBehaviour
     public GameObject BackRCvs;
     public GameObject ChanllCvs;
     public bool ChangeStatus = true;
-    //public GameObject[] arrayIU;
+    [SerializeField] Timer tm;
 
     public void ActivatePause()
     {
@@ -58,14 +58,14 @@ public class ActiveInterface : MonoBehaviour
         if(status)
         {
             ActivateCvs(ChanllCvs);
-            Time.timeScale = 0;
+            tm.PauseTimer();
             status = false;
 
         }else
         {
             status = true;
             DeactivateCvs(ChanllCvs);
-            Time.timeScale = 1;
+            tm.ResumeTimer();
         }
     }
 
