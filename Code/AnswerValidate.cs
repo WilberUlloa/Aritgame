@@ -1,24 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnswerValidate : MonoBehaviour
 {
     public bool isCorrect = false;
     [SerializeField] QuestManager qm;
     [SerializeField] Timer timer;
+    public GameObject AlertCorrect;
+    public GameObject AlertWrong;
+
+    public void ShowAlert(GameObject imageAlert)
+    {
+        imageAlert.SetActive(true);
+    }
+    public void BacktoNormal()
+    {
+        AlertCorrect.SetActive(false);
+        AlertWrong.SetActive(false);
+    }
 
     public void Answer()
     {
         if(isCorrect)
         {
             timer.ResetTimer();
-            Debug.Log("CORRECT ANSWER");
+            ShowAlert(AlertCorrect);
             qm.SetCorrect();
         }
         else
         {
-            Debug.Log("WRONG ANSWER");
+            ShowAlert(AlertWrong);
             qm.SetCorrect();
         }
     }

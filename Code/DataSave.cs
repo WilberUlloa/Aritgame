@@ -11,7 +11,7 @@ public class DataSave : MonoBehaviour
     
     public void Start()
     {
-       loadPrefs(); 
+       loadPrefs();
     }
 
     public void loadPrefs()
