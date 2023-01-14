@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] Timer timer;
     [SerializeField] ActiveInterface ai;
+    [SerializeField] AnswerValidate av;
     public float speedMovement = 4;
     private int coin = 0;
     public Text text_counter;
@@ -93,12 +94,14 @@ public class Movement : MonoBehaviour
 
     public void pressRight(){
         moveRight = true;
+        av.BacktoNormal();
     }
     public void NopressRight(){
         moveRight = false;
     }
     public void pressLeft(){
         moveLeft = true;
+        av.BacktoNormal();
     }
     public void NopressLeft(){
         moveLeft = false;
