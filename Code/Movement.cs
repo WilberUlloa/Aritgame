@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     Rigidbody2D player;
     Animator pyr_runing;
     public Text UserName;
+    public GameObject btnStart;
 
     void Start()
     {
@@ -52,6 +53,7 @@ public class Movement : MonoBehaviour
             player.velocity = new Vector2(player.velocity.x,jump);
             jumpGround = true;
         }
+    
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -76,6 +78,10 @@ public class Movement : MonoBehaviour
     {
         if(coll.gameObject.tag == "coins"){
             coin++;
+            if(coin == 15)
+            {
+                btnStart.SetActive(true);
+            }
             text_counter.text = coin.ToString();
             text_counter2.text = coin.ToString();
             Destroy(coll.gameObject);
@@ -89,6 +95,12 @@ public class Movement : MonoBehaviour
         {
             ai.ActivateChallenges(false);
         }
+    }
+
+    public void LoadCalleges()
+    {
+        ai.ActivateChallenges(true);
+        btnStart.SetActive(false);
     }
 
 
