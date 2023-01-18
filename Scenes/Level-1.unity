@@ -13130,7 +13130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1180317413
 Transform:
   m_ObjectHideFlags: 0
@@ -20747,7 +20747,6 @@ MonoBehaviour:
   currentQuestion: 0
   questionText: {fileID: 446795128}
   ai: {fileID: 568985469}
-  mv: {fileID: 1633458598}
 --- !u!4 &1719802148
 Transform:
   m_ObjectHideFlags: 0
