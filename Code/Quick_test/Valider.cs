@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Valider : MonoBehaviour
 {
-    public bool opcCorrect;
+    public bool opcCorrect = false;
     [SerializeField] QuestMana qm;
     public GameObject AlertCorrect;
     public GameObject AlertWrong;
@@ -32,7 +32,7 @@ public class Valider : MonoBehaviour
         {
             ShowAlert(AlertWrong);
             NoShowAlert(AlertCorrect);
-            qm.SetCorrect();
+            qm.SetWrong();
         }
     }
 }
