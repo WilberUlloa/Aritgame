@@ -21,7 +21,6 @@ public class QuestMana : MonoBehaviour
     public GameObject[] optionsButtons;
     public int currentQuestion;
     public Text questionText;
-    public Text QuestNumber;
     [SerializeField] TextMeshProUGUI TextClock;
     private float valueTimer;
     private bool status;
@@ -30,7 +29,10 @@ public class QuestMana : MonoBehaviour
 
     public Text currentText;
     public int score;
-    int questNum = 0;
+    int totalQuestion = 0;
+
+    public Text MaxP;
+    public Text MinP;
 
     private void Awake()
     {
@@ -40,16 +42,18 @@ public class QuestMana : MonoBehaviour
 
     void Start()
     {
-        questNum = ans.Count;
-        GenerateQ();
+        status = false;
+        totalQuestion = ans.Count;
         restartPanel.SetActive(false);
+        GenerateQ();
     }
 
     void Gameover()
     {
         restartPanel.SetActive(true);
         questionPanel.SetActive(false);
-        questionText.text = score + "/" + questNum;
+        currentText.text = score + " / " + totalQuestion;
+        status = false;
     }
 
     public void restartGame()
@@ -58,7 +62,9 @@ public class QuestMana : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex);
     }
 
-    void Update()
+    public void StartClock(){status = true;}
+
+   public void Update()
     {
         //condition of clock
         if(status)
@@ -67,7 +73,11 @@ public class QuestMana : MonoBehaviour
             int tm = Mathf.FloorToInt(valueTimer);
             TextClock.text = ""+tm;
 
-            if(valueTimer <= 0){status = false;}
+            if(valueTimer <= 0+1)
+            {
+                status = false;
+                Gameover();
+            }
         }     
     }
 
@@ -78,6 +88,7 @@ public class QuestMana : MonoBehaviour
             currentQuestion = Random.Range(0, ans.Count);
             questionText.text = ans[currentQuestion].question;
             SetAnsw();
+            
         }
         else
         {
@@ -89,9 +100,9 @@ public class QuestMana : MonoBehaviour
     {
         for(int i = 0; i < optionsButtons.Length; i++)
         {
+            optionsButtons[i].GetComponent<Valider>().opcCorrect = false;
             optionsButtons[i].transform.GetChild(0).GetComponent<Text>().text 
                 = ans[currentQuestion].options[i];
-            optionsButtons[i].GetComponent<Valider>().opcCorrect = false;
             
             if(ans[currentQuestion].correctAnswer == i+1)
             {
@@ -103,13 +114,13 @@ public class QuestMana : MonoBehaviour
     public void SetCorrect()
     {
         score += 1;
-        GenerateQ();
         ans.RemoveAt(currentQuestion);
+        GenerateQ();
     }
 
     public void SetWrong()
     {
-        GenerateQ();
         ans.RemoveAt(currentQuestion);
+        GenerateQ();
     }
 }

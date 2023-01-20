@@ -14,10 +14,10 @@ public class Clock : MonoBehaviour
     private void Awake()
     {
      status = true;
-     valueClock = 40f;
+     valueClock = 10f;
     }
 
-    void Update()
+ public void Update()
     {
       if(status)
         {

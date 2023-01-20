@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] Timer timer;
     [SerializeField] ActiveInterface ai;
     [SerializeField] AnswerValidate av;
+    [SerializeField] Clock clock;
     public float speedMovement = 4;
     private int coin = 0;
     public Text text_counter;
@@ -78,7 +79,11 @@ public class Movement : MonoBehaviour
     {
         if(coll.gameObject.tag == "coins"){
             coin++;
-            if(coin == 15)
+            if(coin == 3)
+            {
+                btnStart.SetActive(true);
+            }
+             if(coin == 6)
             {
                 btnStart.SetActive(true);
             }
@@ -86,20 +91,12 @@ public class Movement : MonoBehaviour
             text_counter2.text = coin.ToString();
             Destroy(coll.gameObject);
         }
-
-        if(coll.gameObject.tag == "Starts")
-        {
-            ai.ActivateChallenges(true);
-            Destroy(coll.gameObject);
-        }else
-        {
-            ai.ActivateChallenges(false);
-        }
     }
 
     public void LoadCalleges()
     {
         ai.ActivateChallenges(true);
+        clock.Update();
         btnStart.SetActive(false);
     }
 
