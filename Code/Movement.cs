@@ -23,13 +23,16 @@ public class Movement : MonoBehaviour
     Animator pyr_runing;
     public Text UserName;
     public GameObject btnStart;
+    
+    private SoundManager sm;
 
     void Start()
     {
      player = GetComponent<Rigidbody2D>();
      pyr_runing = GetComponent<Animator>();
      AddUserName();
-       
+     sm = FindObjectOfType<SoundManager>();
+     sm.ActivateSound(9, 0.40f);
     }
 
     void Update()
@@ -45,6 +48,7 @@ public class Movement : MonoBehaviour
             pyr_runing.SetBool("runing",true);
             transform.Translate(Vector3.left * -speedMovement * Time.deltaTime);
             transform.rotation = new Quaternion(0,180f,0,0);
+
         }else{
             pyr_runing.SetBool("runing",false);
         }
@@ -53,6 +57,7 @@ public class Movement : MonoBehaviour
             pyr_runing.SetBool("jumping",true);
             player.velocity = new Vector2(player.velocity.x,jump);
             jumpGround = true;
+            sm.ActivateSound(7, 0.20f);
         }
     
     }
@@ -69,6 +74,7 @@ public class Movement : MonoBehaviour
         {
             timer.SubtractTime();
             ai.ActivateBR(true);
+            sm.ActivateSound(5, 0.30f);
         }else
         {
             ai.ActivateBR(false);
@@ -79,14 +85,13 @@ public class Movement : MonoBehaviour
     {
         if(coll.gameObject.tag == "coins"){
             coin++;
-            if(coin == 3)
+            sm.ActivateSound(8, 0.30f);
+            if(coin == 15 || coin == 30 || coin == 45)
             {
                 btnStart.SetActive(true);
+                sm.ActivateSound(0, 0.40f);
             }
-             if(coin == 6)
-            {
-                btnStart.SetActive(true);
-            }
+            
             text_counter.text = coin.ToString();
             text_counter2.text = coin.ToString();
             Destroy(coll.gameObject);

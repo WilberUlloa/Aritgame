@@ -10,11 +10,13 @@ public class Clock : MonoBehaviour
     [SerializeField] ActiveInterface ai;
     private float valueClock;
     private bool status;
+    private SoundManager sm;
 
     private void Awake()
     {
      status = true;
-     valueClock = 10f;
+     valueClock = 30f;
+     sm = FindObjectOfType<SoundManager>();
     }
 
  public void Update()
@@ -24,6 +26,7 @@ public class Clock : MonoBehaviour
             valueClock -= Time.deltaTime;
             int tm = Mathf.FloorToInt(valueClock);
             TextClock.text = ""+tm;
+            sm.ActivateSound(10, 0.30f);
 
             if(valueClock <= 0)
             {

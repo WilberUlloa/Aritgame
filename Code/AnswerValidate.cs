@@ -10,6 +10,12 @@ public class AnswerValidate : MonoBehaviour
     [SerializeField] Timer timer;
     public GameObject AlertCorrect;
     public GameObject AlertWrong;
+    private SoundManager sm;
+
+    public void Awake()
+    {
+        sm = FindObjectOfType<SoundManager>();
+    }
 
     public void ShowAlert(GameObject imageAlert)
     {
@@ -28,11 +34,13 @@ public class AnswerValidate : MonoBehaviour
             timer.ResetTimer();
             ShowAlert(AlertCorrect);
             qm.SetCorrect();
+            sm.ActivateSound(4, 0.25f);
         }
         else
         {
             ShowAlert(AlertWrong);
             qm.SetCorrect();
+            sm.ActivateSound(5, 0.25f);
         }
     }
 }

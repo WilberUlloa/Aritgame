@@ -9,7 +9,10 @@ public class Enemies : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position,
-        new Vector2(pyr.position.x, transform.position.y), speedEnemies*Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position,
+        //new Vector2(pyr.position.x, transform.position.y), speedEnemies*Time.deltaTime);
+
+        transform.position = Vector2.Lerp(transform.position, 
+        new Vector2(pyr.position.x, transform.position.y), speedEnemies);
     }
 }
