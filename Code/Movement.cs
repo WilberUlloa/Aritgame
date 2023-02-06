@@ -96,15 +96,14 @@ public class Movement : MonoBehaviour
             text_counter2.text = coin.ToString();
             Destroy(coll.gameObject);
         }
-    }
 
-    public void LoadCalleges()
-    {
-        ai.ActivateChallenges(true);
-        clock.Update();
-        btnStart.SetActive(false);
+        if(coll.gameObject.tag == "Starts")
+        {
+            ai.ActivateChallenges(true);
+            clock.Update();
+            btnStart.SetActive(false);
+        }
     }
-
 
     public void pressRight(){
         moveRight = true;

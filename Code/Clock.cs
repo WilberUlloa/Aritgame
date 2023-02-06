@@ -15,7 +15,7 @@ public class Clock : MonoBehaviour
     private void Awake()
     {
      status = true;
-     valueClock = 30f;
+     valueClock = 40f;
      sm = FindObjectOfType<SoundManager>();
     }
 
