@@ -47,4 +47,10 @@ public class DataSave : MonoBehaviour
         PlayerPrefs.SetFloat("KeyVolume", Volume.value);
     }
 
+    public void changeVolume()
+    {
+        AudioListener.volume = Volume.value;
+        SetVolume();
+    }
+
 }

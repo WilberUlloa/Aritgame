@@ -34,13 +34,13 @@ public class AnswerValidate : MonoBehaviour
             timer.ResetTimer();
             ShowAlert(AlertCorrect);
             qm.SetCorrect();
-            sm.ActivateSound(4, 0.25f);
+            sm.selectAudio(4);
         }
         else
         {
             ShowAlert(AlertWrong);
             qm.SetCorrect();
-            sm.ActivateSound(5, 0.25f);
+            sm.selectAudio(3);
         }
     }
 }

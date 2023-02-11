@@ -5,15 +5,14 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] sounds;
-    private AudioSource controlerSound;
+    private AudioSource soundcontroller;
 
-    public void Awake()
-    {
-        controlerSound = GetComponent<AudioSource>();
+    public void Awake(){
+        soundcontroller = GetComponent<AudioSource>();
     }
 
-    public void ActivateSound(int index, float volume)
+    public void selectAudio(int index)
     {
-        controlerSound.PlayOneShot(sounds[index], volume);
+        soundcontroller.PlayOneShot(sounds[index]);
     }
 }

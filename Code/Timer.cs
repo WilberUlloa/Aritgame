@@ -12,11 +12,13 @@ public class Timer : MonoBehaviour
     [SerializeField] private float MaxTime;
     private float ActualTime;
     private bool linked = true;
+    private SoundManager sm;
 
     void Start()
     {
         ActualTime = MaxTime;
         lifeBar.GetMaxValue(MaxTime);
+        sm = FindObjectOfType<SoundManager>();
     }
 
     void Update()
@@ -32,6 +34,7 @@ public class Timer : MonoBehaviour
             {
                 linked = false;
                 ai.ActivateRestartGame(true);
+                sm.selectAudio(5);
             }
         }
     }

@@ -18,6 +18,9 @@ public class ControllerSettings : MonoBehaviour
 
         imgTitleAct.SetActive(false);
         imgTitleDeact.SetActive(true);
+        GameObject.FindGameObjectWithTag("playSound").
+            GetComponent<SoundGeneral>().PuaseSound();  
+
     }
 
     public void OnSound()
@@ -27,6 +30,8 @@ public class ControllerSettings : MonoBehaviour
 
         imgTitleDeact.SetActive(false);
         imgTitleAct.SetActive(true);
+        GameObject.FindGameObjectWithTag("playSound").
+            GetComponent<SoundGeneral>().PlaySound(); 
     }
 
     public void ShowCanvas()

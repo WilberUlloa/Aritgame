@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     [SerializeField] ActiveInterface ai;
     [SerializeField] AnswerValidate av;
     [SerializeField] Clock clock;
+
+    private SoundManager sm;
     public float speedMovement = 4;
     private int coin = 0;
     public Text text_counter;
@@ -24,7 +26,6 @@ public class Movement : MonoBehaviour
     public Text UserName;
     public GameObject btnStart;
     
-    private SoundManager sm;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class Movement : MonoBehaviour
      pyr_runing = GetComponent<Animator>();
      AddUserName();
      sm = FindObjectOfType<SoundManager>();
-     sm.ActivateSound(9, 0.40f);
+
     }
 
     void Update()
@@ -57,7 +58,7 @@ public class Movement : MonoBehaviour
             pyr_runing.SetBool("jumping",true);
             player.velocity = new Vector2(player.velocity.x,jump);
             jumpGround = true;
-            sm.ActivateSound(7, 0.20f);
+            sm.selectAudio(0);
         }
     
     }
@@ -74,7 +75,7 @@ public class Movement : MonoBehaviour
         {
             timer.SubtractTime();
             ai.ActivateBR(true);
-            sm.ActivateSound(5, 0.30f);
+            sm.selectAudio(3);
         }else
         {
             ai.ActivateBR(false);
@@ -85,11 +86,11 @@ public class Movement : MonoBehaviour
     {
         if(coll.gameObject.tag == "coins"){
             coin++;
-            sm.ActivateSound(8, 0.30f);
+            sm.selectAudio(1);
             if(coin == 15 || coin == 30 || coin == 45)
             {
                 btnStart.SetActive(true);
-                sm.ActivateSound(0, 0.40f);
+                sm.selectAudio(2);
             }
             
             text_counter.text = coin.ToString();
